@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  </head>
+  <body>
+    <div style="margin-bottom: 30px;">
+      <h1><%= title %></h1>
+     <p>Welcome to <%= title %></p>
+    </div>
+
+    <table class="table" style="margin-bottom: 20px;">
+      <thead class="table-secondary">
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Tier</th>
+          <th>Salary</th>
+        </tr>
+      </thead>
+      <tbody>
+       <% if (data.length){
+        for(var i = 0; i < data.length; i++)
+        
+       {%> 
+        <tr>
+          <td><%=data[i].f_name %></td>
+          <td><%=data[i].l_name %></td>
+          <td><%=data[i].tier %></td>
+          <td><%=(data[i].salary).toLocaleString('en-US', {style: 'currency',currency: 'USD',}) %></td>
+        </tr>
+        <%}}else{%>
+        
+        <%}%>
+      </tbody>
+    </table>
+
+
+    <table class="table mx-auto " style="width: 80%;  text-align:center; margin-top: 80px;">
+      <thead class="table-primary">
+        <tr>
+
+          <th>Total Employees</th>
+          <th>Total Salary</th>
+          <th>Max Salary</th>
+          <th>Minimum Salary</th>
+          <th>Average Salary</th>
+        </tr>
+      </thead>
+      <tbody>
+       <% if (salary_dets.length){
+        for(var i = 0; i < salary_dets.length; i++)
+        
+       {%> 
+        <tr>
+          <td><%=salary_dets[i].tot_employees %></td>
+
+          <td><%=(salary_dets[i].tot_salary).toLocaleString('en-US', {style: 'currency',currency: 'USD',}) %></td>
+
+          <td><%=(salary_dets[i].max_salary).toLocaleString('en-US', {style: 'currency',currency: 'USD',}) %></td>
+
+          <td><%=(salary_dets[i].min_salary).toLocaleString('en-US', {style: 'currency',currency: 'USD',}) %></td>
+
+          <td><%=(salary_dets[i].avg_salary).toLocaleString('en-US', {style: 'currency',currency: 'USD',}) %></td>
+
+        </tr>
+        
+        <%}}else{%>
+        
+        <%}%>
+      </tbody>
+    </table>
+
+
+    
+    
+  </body>
+</html>
